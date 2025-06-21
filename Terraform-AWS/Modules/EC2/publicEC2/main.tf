@@ -7,7 +7,11 @@ resource "aws_instance" "public_ec2_instance" {
   associate_public_ip_address = true
 
   tags = {
-    Name = var.public_instance_name
+    Name    = var.public_instance_name
+    Role    = var.public_instance_name
+    Project = "Terraform"
+    
+
   }
 }
 

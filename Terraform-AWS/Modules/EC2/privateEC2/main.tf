@@ -8,6 +8,8 @@ resource "aws_instance" "private_ec2" {
   key_name               = var.key_name
 
   tags = {
-    Name = each.key
+    Name    = each.key
+    Role    = each.key
+    Project = "Terraform"
   }
 }
