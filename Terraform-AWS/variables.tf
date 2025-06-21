@@ -1,53 +1,33 @@
-variable "region" {
-  type    = string
-  default = "us-east-1"
+variable "vault_token" {
+  description = "Vault token for accessing AWS credentials"
+  type        = string
+  sensitive   = true
 }
+
+# VPC CONFIGURATION
 
 variable "vpc_cidr_block" {
   description = "CIDR block for the VPC"
   type        = string
+  default     = "10.0.0.0/16"
 }
-
-
-variable "public_subnet_cidr" {
-  description = "CIDR block for the public subnet"
-  type        = string
-}
-variable "public_subnet_az" {
-  description = "Availability Zone for the public subnet"
-  type        = string
-}
-
 variable "private_subnet_cidr" {
   description = "CIDR block for the private subnet"
   type        = string
+  default     = "10.0.1.0/24"
 }
-
-variable "private_subnet_az" {
-  description = "Availability Zone for the private subnet"
+variable "private_az" {
+  description = "Availability zone for the private subnet"
   type        = string
+  default     = "us-east-1a"
 }
-
-variable "key_name" {
-  description = "Name of the EC2 Key Pair to be used for SSH access"
+variable "public_subnet_cidr" {
+  description = "CIDR block for the public subnet"
   type        = string
-  default     = "Terraform-Project" # Change this to your actual key pair name
+  default     = "10.0.2.0/24"
 }
-
-variable "ami_id" {
-  description = "AMI ID for the Tomcat EC2 instances"
+variable "public_az" {
+  description = "Availability zone for the public subnet"
   type        = string
-}
-variable "instance_type" {
-  description = "Instance type for the EC2 instances"
-  type        = string
-  default     = "t2.micro" # Change this to your desired instance type
-}
-
-variable "private_instances" {
-  description = "Map of private instances with their AMI and instance type"
-  type = map(object({
-    ami           = string
-    instance_type = string
-  }))
+  default     = "us-east-1b"
 }
