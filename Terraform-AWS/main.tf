@@ -33,3 +33,23 @@ module "vpc" {
   public_az           = var.public_az
 
 }
+
+module "SecurityGroup" {
+  source = "./Modules/SecurityGroup"
+  vpc_id = module.vpc.vpc_id
+}
+
+module "EC2" {
+  source   = "./Modules/EC2"
+  key_name = var.key_name
+
+  private_instances = var.private_instances
+  private_subnet_id = module.vpc.private_subnet_id
+  private_sg_id     = module.SecurityGroup.PrivateEC2SecurityGroup_id
+
+  publicEC2_ami_id        = var.publicEC2_ami_id
+  publicEC2_instance_type = var.publicEC2_instance_type
+  public_sg_id            = module.SecurityGroup.PublicEC2SecurityGroup_id
+  public_subnet_id        = module.vpc.public_subnet_id
+  public_instance_name    = var.public_instance_name
+}

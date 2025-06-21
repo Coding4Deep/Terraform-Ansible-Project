@@ -31,3 +31,48 @@ variable "public_az" {
   type        = string
   default     = "us-east-1b"
 }
+
+variable "key_name" {
+  description = "The name of the key pair to create or use."
+  type        = string
+  default     = "Terraform-ansible-Key"
+
+}
+
+variable "private_instances" {
+  description = "Map of private instance configurations"
+  type = map(object({
+    ami           = string
+    instance_type = string
+  }))
+  default = {
+    "Memcached" = {
+      ami           = "ami-020cba7c55df1f615"
+      instance_type = "t2.micro"
+    },
+    "RabbitMQ" = {
+      ami           = "ami-020cba7c55df1f615"
+      instance_type = "t2.micro"
+    },
+    "MongoDB" = {
+      ami           = "ami-020cba7c55df1f615"
+      instance_type = "t2.micro"
+    }
+  }
+}
+
+variable "publicEC2_ami_id" {
+  description = "AMI ID for the public EC2 instance"
+  type        = string
+  default     = "ami-020cba7c55df1f615"
+}
+variable "publicEC2_instance_type" {
+  description = "Instance type for the public EC2 instance"
+  type        = string
+  default     = "t2.micro"
+}
+variable "public_instance_name" {
+  description = "Name tag for the public EC2 instance"
+  type        = string
+  default     = "Tomcat"
+}
