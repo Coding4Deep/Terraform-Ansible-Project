@@ -1,10 +1,10 @@
-# 🔐 Using Vault Secrets in Terraform (AWS Access Key Example)
+#  Using Vault Secrets in Terraform (AWS Access Key Example)
 
 This guide explains how to securely use **AWS access keys and secret keys** stored in **HashiCorp Vault** in a **Terraform** configuration — without hardcoding sensitive credentials in your `.tf` files.
 
 ---
 
-## 📌 Why Use Vault with Terraform?
+##  Why Use Vault with Terraform?
 
 * ✅ Avoid hardcoding secrets like AWS credentials.
 * ✅ Centralize secret management with audit logging, TTL, and dynamic rotation.
@@ -12,7 +12,7 @@ This guide explains how to securely use **AWS access keys and secret keys** stor
 
 ---
 
-## 🛠 Prerequisites
+##  Prerequisites
 
 Before getting started, ensure the following are set up:
 
@@ -25,7 +25,7 @@ Before getting started, ensure the following are set up:
 
 ---
 
-## 🔧 Step-by-Step Setup
+##  Step-by-Step Setup
 
 ### 1️⃣ Start Vault in Dev Mode (for testing)
 
@@ -119,13 +119,13 @@ terraform apply
 
 ---
 
-## 🔒 Security Tip
+##  Security Tip
 
 Even in dev mode, avoid sharing your root Vault token. For production, use Vault AppRole auth or dynamic AWS credentials instead.
 
 ---
 
-## 📁 Files Structure (Summary)
+##  Files Structure (Summary)
 
 ```
 .
@@ -136,6 +136,3 @@ Even in dev mode, avoid sharing your root Vault token. For production, use Vault
 
 ---
 
-## 💬 Need Dynamic AWS Credentials from Vault?
-
-You can also use Vault's AWS secrets engine to generate temporary AWS keys. Ask if you'd like a guide for that!
