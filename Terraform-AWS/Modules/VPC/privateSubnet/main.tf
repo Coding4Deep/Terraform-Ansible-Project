@@ -15,7 +15,7 @@ resource "aws_eip" "private_nat_gateway" {
 
 resource "aws_nat_gateway" "private_nat_gateway" {
   allocation_id = aws_eip.private_nat_gateway.id
-  subnet_id     = aws_subnet.private_subnet.id
+  subnet_id     = var.public_subnet_id
 
   tags = {
     Name = "Terraform_Private_NAT_Gateway"
