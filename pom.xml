@@ -5,9 +5,9 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>devopsapp</artifactId>
-    <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <artifactId>springboot</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <name>Spring Boot DevOps App</name>
 
@@ -120,6 +120,8 @@
 
          
     <build>
+         <finalName>springboot</finalName>
+             
         <plugins>
             <!-- Spring Boot Maven Plugin -->
             <plugin>
