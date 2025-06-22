@@ -1,0 +1,27 @@
+plugin: amazon.aws.aws_ec2
+regions:
+  - us-east-1
+
+filters:
+  tag:Project: Terraform
+
+keyed_groups:
+  - key: tags.Role
+    prefix: ""
+    separator: ""
+
+# hostnames:
+#   - public_ip_address
+#   - private_ip_address
+compose:
+  ansible_host: >-
+    (tags.Role == 'Tomcat') | ternary(public_ip_address, private_ip_address)
+
+  ansible_ssh_common_args: >-
+    (tags.Role != 'Tomcat') | ternary(
+      "-o ProxyCommand='ssh -o StrictHostKeyChecking=no -i /home/ubuntu/Terraform-Ansible-Project/Terraform-AWS/Terraform-ansible-Key.pem -W %h:%p ubuntu@{{ hostvars[(groups['Tomcat'] | list)[0]].ansible_host }}'",
+      ""
+    )
+
+
+

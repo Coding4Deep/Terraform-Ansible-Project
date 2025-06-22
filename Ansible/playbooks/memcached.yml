@@ -1,0 +1,5 @@
+- name: Install Memcached on private EC2
+  hosts: Memcached
+  become: true
+  roles:
+    - memcached

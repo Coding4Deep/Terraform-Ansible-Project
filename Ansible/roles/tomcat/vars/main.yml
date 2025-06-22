@@ -1,0 +1,5 @@
+# roles/tomcat/vars/main.yml
+tomcat_version: 11.0.8
+tomcat_user: tomcat
+tomcat_install_dir: /opt/tomcat
+

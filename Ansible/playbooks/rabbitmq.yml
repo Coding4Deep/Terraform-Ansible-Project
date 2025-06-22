@@ -1,0 +1,5 @@
+- name: Install RabbitMQ on private EC2
+  hosts: RabbitMQ
+  become: true
+  roles:
+    - rabbitmq

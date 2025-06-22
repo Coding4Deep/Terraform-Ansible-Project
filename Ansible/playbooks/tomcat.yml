@@ -1,0 +1,5 @@
+- name: Install Tomcat on public EC2
+  hosts: Tomcat
+  become: true
+  roles:
+    - tomcat

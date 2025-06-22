@@ -1,0 +1,8 @@
+- name: Setup all servers
+  hosts: all
+  become: true
+  roles:
+    - { role: Tomcat, when: "'Tomcat' in group_names" }
+    - { role: RabbitMQ, when: "'RabbitMQ' in group_names" }
+    - { role: MongoDB, when: "'MongoDB' in group_names" }
+    - { role: Memcached, when: "'Memcached' in group_names" }

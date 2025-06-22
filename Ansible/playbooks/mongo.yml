@@ -1,0 +1,5 @@
+- name: Install MongoDB on private EC2
+  hosts: MongoDB
+  become: true
+  roles:
+    - mongodb
