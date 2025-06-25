@@ -3,3 +3,8 @@
   become: true
   roles:
     - tomcat
+
+
+  # vars:
+  #   mongo_ip: "{{ hostvars[groups['MongoDB'][0]].ansible_default_ipv4.address }}"
+  #   mongo_uri: "mongodb://{{ mongo_ip }}:27017/devopsdb"

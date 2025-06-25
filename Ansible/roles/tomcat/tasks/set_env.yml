@@ -1,0 +1,20 @@
+# - name: Inject Mongo URI into /etc/environment
+#   lineinfile:
+#     path: /etc/environment
+#     line: "MONGO_URI={{ mongo_uri }}"
+#     create: yes
+
+# - name: Export environment variable in Tomcat startup
+#   lineinfile:
+#     path: /etc/systemd/system/tomcat.service.d/env.conf
+#     create: yes
+#     line: "Environment=MONGO_URI={{ mongo_uri }}"
+
+# - name: Reload systemd
+#   systemd:
+#     daemon_reload: yes
+
+# - name: Restart Tomcat to apply env changes
+#   systemd:
+#     name: tomcat
+#     state: restarted

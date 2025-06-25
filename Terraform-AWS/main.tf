@@ -9,8 +9,9 @@ terraform {
 }
 
 provider "vault" {
-  address = "http://127.0.0.1:8200"
+  address = "https://127.0.0.1:8200"
   token   = var.vault_token
+  skip_tls_verify = true
 }
 
 data "vault_generic_secret" "awscreds" {
